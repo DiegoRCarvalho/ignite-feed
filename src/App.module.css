@@ -1,0 +1,9 @@
+.wrapper {
+  max-width: 70rem; /* A soma dos itens do layout da 1.120 pixels, logo 1.120 / 16 = 70 */
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 256px 1fr; /* 256px é o tamanho fixo do sidebar, que nunca muda, a div do post se ajusta ao tamanho da tela*/
+  gap: 2rem;
+  align-items: start; /* Isso alinha as divs de sidebar e do feed na parte superior, e permite que a div do sidebar seja menor que a div do feed*/
+}
