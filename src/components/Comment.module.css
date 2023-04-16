@@ -1,0 +1,15 @@
+.comment {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.commentBox {
+  flex: 1;
+}
+
+.commentContent {
+  background: var(--gray-700);
+  border-radius: 8px;
+  padding: 1rem;
+}
