@@ -1,1 +1,5 @@
-.sidebar{}
+.sidebar{
+  background: var(--gray-800);
+  border-radius: 8px;
+  overflow: hidden; /* Oculta a parte sobresalente da imagem, evitando que ela ultrapasse o espaço destinado a ela*/
+}
