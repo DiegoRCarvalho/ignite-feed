@@ -17,16 +17,6 @@
   margin-top: calc(0px - 1.5rem - 6px); /* 0px é para deixar a conta negativa, 1.5rem é a metade do height do avatar e 6px é a metade do width do avatar, dessa forma o elemento ficará totalmente centralizado*/
 }
 
-.avatar {
-  /*box-sizing: initial;*/ /*Faz com que os elementos adicionados como borda, outline, etc, não espremam a imagem, ao invés disso a imagem se mantém do mesmo tamanho e os elementos são adicionados por fora*/
-  /* A formatação com box-sizing: initial; também pode ser realizada através de um cálculo na largura e altura, onde adicionamos o tamanho das bordas, ver exemplo abaixo */
-  width: calc(3rem + 12px); /* 4px direita + 4px esquerda + 2px direita + 2px esquerda = 12px*/
-  height: calc(3rem + 12px); /* 4px direita + 4px esquerda + 2px direita + 2px esquerda = 12px*/
-  border-radius: 8px;
-  border: 4px solid var(--gray-800);
-  outline: 2px solid var(--green-500);
-}
-
 .profile strong {
   margin-top: 1rem;
   color: var(--gray-100);

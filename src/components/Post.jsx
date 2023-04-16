@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import styles from './Post.module.css'
 import { Comment } from './Comment'
+import { Avatar } from './Avatar'
 
 export function Post() {
   return (
@@ -9,7 +10,11 @@ export function Post() {
       <article className={styles.post}>
         <header>
           <div className={styles.author}>
-            <img src="https://github.com/diegorcarvalho.png" />
+            <Avatar
+              hasBorder={true}
+              src="https://github.com/diegorcarvalho.png"
+              alt=""
+            />
             <div className={styles.authorInfo}>
               <strong>Autor</strong>
               <span>Profissão</span>
@@ -54,7 +59,11 @@ export function Post() {
       <article className={styles.post}>
         <header>
           <div className={styles.author}>
-            <img src="https://github.com/diegorcarvalho.png" />
+            <Avatar
+              hasBorder={true}
+              src="https://github.com/diegorcarvalho.png"
+              alt=""
+            />
             <div className={styles.authorInfo}>
               <strong>Autor</strong>
               <span>Profissão</span>
