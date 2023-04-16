@@ -9,3 +9,10 @@
   height: 72px;
   object-fit: cover; /* Mostra apenas o centro da imagem sem distorcer o conteúdo*/
 }
+
+.profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
