@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import styles from './Sidebar.module.css'
+import { PencilLine } from 'phosphor-react'
 
 export function Sidebar() {
   return (
@@ -16,6 +17,12 @@ export function Sidebar() {
         <strong>Nome do Usuário</strong>
         <span>Web developer</span>
       </div>
+      <footer>
+        <a href="#">
+          <PencilLine />
+          Editar seu perfil
+        </a>
+      </footer>
     </aside>
   )
 }
