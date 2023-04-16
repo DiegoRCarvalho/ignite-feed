@@ -113,3 +113,14 @@
 .commentForm button[type=submit]:hover {
   background-color: var(--green-300);
 }
+
+.commentForm footer {
+  visibility: hidden;
+  max-height: 0;
+}
+
+/* o focus-within recebe é selecionado quando o elemento recebe foco */
+.commentForm:focus-within footer{
+  visibility: visible;
+  max-height: none;
+}
