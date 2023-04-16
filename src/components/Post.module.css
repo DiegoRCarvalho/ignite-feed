@@ -11,3 +11,10 @@
 .post + .post {
   margin-top: 2rem;
 }
+
+/* O sinal de maior faz com que o seletor atue apenas sobre o header do primeiro nível abaixo da classe post */
+.post > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
