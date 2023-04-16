@@ -1,3 +1,13 @@
 .post {
-  
+  background-color: var(--gray-800);
+  border-radius: 8px;
+  padding: 2.5rem;
+}
+
+/* 
+  O sinal de + no CSS faz com que esse seletor somente se aplique a um poste que possui outro post antes dele,
+  dessa forma, o espaçamento só será aplicado se tivermos mais de um post.
+  */
+.post + .post {
+  margin-top: 2rem;
 }
