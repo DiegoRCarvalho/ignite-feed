@@ -7,3 +7,24 @@
   gap: 2rem;
   align-items: start; /* Isso alinha as divs de sidebar e do feed na parte superior, e permite que a div do sidebar seja menor que a div do feed*/
 }
+
+@media (max-width: 768px) {
+  html {
+    /*
+      O font-size padrão é de 1rem, ou seja, 16px, queremos diminuir a font para 14px quando for um dispositivo mobile.
+      Porém devemos informar a medida em porcentagem e não em pixel, para que o usuário possa aumentar ou diminuir as fontes de acordo com as configurações do aparelho
+      Para descobrir o valor em porcento utilizamos uma regra de 3:
+
+      16px --> 100%
+      14px --> X
+
+      16/(14*100) = 87,50%
+
+    */
+    font-size: 87.5%; 
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
