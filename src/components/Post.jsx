@@ -4,7 +4,8 @@ import styles from './Post.module.css'
 import { Comment } from './Comment'
 import { Avatar } from './Avatar'
 
-export function Post() {
+export function Post(props) {
+  console.log(props)
   return (
     <div>
       <article className={styles.post}>
