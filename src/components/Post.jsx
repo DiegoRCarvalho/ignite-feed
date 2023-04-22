@@ -1,6 +1,8 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable array-callback-return */
 import { format, formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
+import { useState } from 'react'
 
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
@@ -25,6 +27,24 @@ export function Post({ author, publishedAt, content }) {
     locale: ptBR,
   })
 
+  const [comments, setComments] = useState([
+    'Post inicial'
+   ])
+ 
+  const [newCommentText, setNewCommentText] = useState('')
+ 
+
+  function handleCrateNewComment() {
+    event.preventDefault()
+
+    setComments([...comments, newCommentText])
+    setNewCommentText('')
+  }
+
+  function handleNewCommentChange() {
+    setNewCommentText(event.target.value)
+  }
+  
   return (
     <article className={styles.post}>
       <header>
@@ -52,17 +72,27 @@ export function Post({ author, publishedAt, content }) {
           }
         })}
       </div>
-      <form className={styles.commentForm}>
+      <form onSubmit={handleCrateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
-        <textarea placeholder="Deixe um comentário" />
+        <textarea
+          name="comment"
+          placeholder="Deixe um comentário"
+          value={newCommentText}
+          onChange={handleNewCommentChange}
+        />
         <footer>
           <button type="submit">Publicar</button>
         </footer>
       </form>
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map((comment) => {
+          return (
+            <Comment 
+              key={comment}
+              content={comment}
+            />
+          )
+        })}
       </div>
     </article>
   )
