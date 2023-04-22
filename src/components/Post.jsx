@@ -1,119 +1,69 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable jsx-a11y/alt-text */
-import styles from './Post.module.css'
-import { Comment } from './Comment'
-import { Avatar } from './Avatar'
+/* eslint-disable array-callback-return */
+import { format, formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
-export function Post(props) {
-  console.log(props)
+import { Avatar } from './Avatar'
+import { Comment } from './Comment'
+
+import styles from './Post.module.css'
+
+export function Post({ author, publishedAt, content }) {
+  const publishedDateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'de' yyyy 'às' HH:mm'h'",
+    {
+      locale: ptBR,
+    },
+  )
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  })
+
+  const publishedDateTime = format(publishedAt, "yyyy'-'LL'-'dd HH:mm:ss", {
+    locale: ptBR,
+  })
+
   return (
-    <div>
-      <article className={styles.post}>
-        <header>
-          <div className={styles.author}>
-            <Avatar
-              hasBorder={true}
-              src="https://github.com/diegorcarvalho.png"
-              alt=""
-            />
-            <div className={styles.authorInfo}>
-              <strong>Autor</strong>
-              <span>Profissão</span>
-            </div>
+    <article className={styles.post}>
+      <header>
+        <div className={styles.author}>
+          <Avatar src={author.avatarUrl} />
+          <div className={styles.authorInfo}>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
-          <time
-            title="11 de maio de 2023 às 08:13h"
-            dateTime="2023-04-16 08:13:00"
-          >
-            Publicado há 1h
-          </time>
-        </header>
-        <div className={styles.content}>
-          <p>Fala galeraa 👋</p>
-          <p>
-            Acabei de subir mais um projeto no meu portifa. É um projeto que fiz
-            no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare
-            🚀
-          </p>
-          <p>
-            👉{' '}<a href="#">jane.design/doctorcare</a>
-          </p>
-          <p>
-            <a href="#">#novoprojeto</a>{' '}
-            <a href="#">#nlw</a>{' '}
-            <a href="#">#rocketseat</a>
-          </p>
         </div>
-        <form className={styles.commentForm}>
-          <strong>Deixe seu feedback</strong>
-          <textarea placeholder='Deixe um comentário' />
-          <footer>
-            <button type='submit'>Publicar</button>
-          </footer>
-        </form>
-        <div className={styles.commentList}>
-          <Comment />
-          <Comment />
-          <Comment />
-        </div>
-      </article>
-      <article className={styles.post}>
-        <header>
-          <div className={styles.author}>
-            <Avatar
-              hasBorder={true}
-              src="https://github.com/diegorcarvalho.png"
-              alt=""
-            />
-            <div className={styles.authorInfo}>
-              <strong>Autor</strong>
-              <span>Profissão</span>
-            </div>
-          </div>
-          <time
-            title="11 de maio de 2023 às 08:13h"
-            dateTime="2023-04-16 08:13:00"
-          >
-            Publicado há 1h
-          </time>
-        </header>
-        <div className={styles.content}>
-          <p>Fala galeraa 👋</p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae maxime magni, numquam excepturi deleniti hic iure, officia 
-            doloremque architecto, labore ullam unde voluptas. Ratione non hic vel deleniti, commodi fugiat.Lorem ipsum dolor sit, amet consectetur 
-            adipisicing elit. Repudiandae maxime magni, numquam excepturi deleniti hic iure, officia doloremque architecto, labore ullam unde voluptas. 
-            Ratione non hic vel deleniti, commodi fugiat.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae maxime magni, 
-            numquam excepturi deleniti hic iure, officia doloremque architecto, labore ullam unde voluptas. Ratione non hic vel deleniti, commodi fugiat.
-            Ratione non hic vel deleniti, commodi fugiat.Lorem ipsum dolor sit, amet consectetur 
-            adipisicing elit. Repudiandae maxime magni, numquam excepturi deleniti hic iure, officia doloremque architecto, labore ullam unde voluptas. 
-            Ratione non hic vel deleniti, commodi fugiat.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae maxime magni, 
-            numquam excepturi deleniti hic iure, officia doloremque architecto, labore ullam unde voluptas. Ratione non hic vel deleniti, commodi fugiat.
-          </p>
-          <p>
-            Repudiandae maxime magni, numquam excepturi deleniti hic iure, officia doloremque architecto, labore ullam unde voluptas. 
-            Ratione non hic vel deleniti, commodi fugiat.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae maxime magni, 
-            numquam excepturi deleniti hic iure, atione non hic vel deleniti, commodi fugiat.Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Repudiandae maxime magni, numquam excepturi deleniti hic iure, officia doloremque architecto, labore ullam 
-            unde voluptas. Ratione non hic vel deleniti, commodi fugiat.
-          </p>
-          <p>
-            👉{' '}<a href="#">jane.design/doctorcare</a>
-          </p>
-          <p>
-            <a href="#">#novoprojeto</a>{' '}
-            <a href="#">#nlw</a>{' '}
-            <a href="#">#rocketseat</a>
-          </p>
-        </div>
-        <form className={styles.commentForm}>
-          <strong>Deixe seu feedback</strong>
-          <textarea placeholder='Deixe um comentário' />
-          <footer>
-            <button type='submit'>Publicar</button>
-          </footer>
-        </form>
-      </article>
-    </div>
+        <time title={publishedDateFormatted} dateTime={publishedDateTime}>
+          {publishedDateRelativeToNow}
+        </time>
+      </header>
+      <div className={styles.content}>
+        {content.map((line) => {
+          if (line.type === 'paragraph') {
+            return <p key={line.content}>{line.content}</p>
+          } else if (line.type === 'link') {
+            return (
+              <p key={line.content}>
+                <a href="">{line.content}</a>
+              </p>
+            )
+          }
+        })}
+      </div>
+      <form className={styles.commentForm}>
+        <strong>Deixe seu feedback</strong>
+        <textarea placeholder="Deixe um comentário" />
+        <footer>
+          <button type="submit">Publicar</button>
+        </footer>
+      </form>
+      <div className={styles.commentList}>
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
+    </article>
   )
 }

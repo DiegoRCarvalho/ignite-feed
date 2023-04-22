@@ -9,7 +9,7 @@ const post = [
   {
     id: 1,
     author: {
-      avatar: 'http://github.com/diegorcarvalho.png',
+      avatarUrl: 'https://github.com/diegorcarvalho.png',
       name: 'Autor',
       role: 'Profissão',
     },
@@ -25,9 +25,9 @@ const post = [
     publishedAt: new Date('2023-04-21 20:00:00'),
   },
   {
-    id: 1,
+    id: 2,
     author: {
-      avatar: 'http://github.com/diegorcarvalho.png',
+      avatarUrl: 'https://github.com/diegorcarvalho.png',
       name: 'Autor',
       role: 'Profissão',
     },
