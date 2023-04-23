@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import styles from './Sidebar.module.css'
 import { PencilLine } from 'phosphor-react'
 import { Avatar } from './Avatar'
@@ -14,7 +13,6 @@ export function Sidebar() {
         <Avatar
           hasBorder={true}
           src="https://github.com/diegorcarvalho.png"
-          alt=""
         />
         <strong>Nome do Usuário</strong>
         <span>Web developer</span>

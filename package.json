@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "lint": "eslint src --ext .ts .jsx .css --fix",
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,11 +17,16 @@
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "1.2.0",
+    "git-commit-msg-linter": "4.9.4",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
-    "@vitejs/plugin-react": "3.1.0",
-    "eslint": "8.36.0",
-    "git-commit-msg-linter": "4.9.4",
-    "vite": "4.2.0"
+    "@typescript-eslint/eslint-plugin": "5.57.1",
+    "@typescript-eslint/parser": "5.57.1",
+    "@vitejs/plugin-react": "4.0.0-beta.0",
+    "eslint": "8.38.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.3.4",
+    "typescript": "5.0.2",
+    "vite": "4.3.0"
   }
 }
